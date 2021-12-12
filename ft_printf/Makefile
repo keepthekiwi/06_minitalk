@@ -5,33 +5,38 @@
 #                                                     +:+ +:+         +:+      #
 #    By: skillian <skillian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/12/10 17:42:48 by skillian          #+#    #+#              #
-#    Updated: 2021/12/12 18:50:17 by skillian         ###   ########.fr        #
+#    Created: 2021/08/28 18:33:13 by skillian          #+#    #+#              #
+#    Updated: 2021/08/29 16:44:23 by skillian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = minitalk
-NAME1 = client
-NAME2 = server
-CC = gcc
-FLAGS = -Wall -Wextra -Werror
-LIBFT = ./libft/libft.a
-##FT_PRINTF = ./ft_printf/libftprintf.a ///sooooo?????
-SRC =   client.c \
-        server.c
-OBJ =   $(SRC:.c=.o)
-all: $(NAME1) $(NAME2)
+NAME = libftprintf.a
 
-%.o: %.c
-	gcc -c -Wall -Werror -Wextra $^ -o $@
-$(NAME1): $(LIBFT) client.o 
-	gcc $(FLAGS) $(LIBFT) client.o -o $(NAME1)
-$(NAME2): $(LIBFT) server.o 
-	gcc $(FLAGS) $(LIBFT) server.o -o $(NAME2)
-$(LIBFT):
-	make --directory=./Libft
+CC = gcc
+CC_FLAGS = -Wall -Wextra -Werror -c
+RM = rm
+RM_FlAGS = -f
+
+SOURCES = ft_convert.c ft_dectohex.c ft_printf.c \
+			ft_putchar.c ft_putnbr.c ft_putstr.c ft_strlen.c
+
+OBJECTS = $(SOURCES:.c=.o)
+
+HEADER = ft_printf.h
+
+all: $(NAME)
+
+$(NAME): $(OBJECTS) $(HEADER)
+	$(CC) $(CC_FLAGS) $(SOURCES)
+	ar -crs $(NAME) $(OBJECTS)
+
+$(OBJECTS): $(SOURCES)
+	$(CC) $(CC_FLAGS) $(SOURCES)
+
 clean:
-	rm -fr $(OBJ)
+	$(RM) $(RM_FlAGS) $(OBJECTS)
+
 fclean: clean
-	rm -fr $(NAME1) $(NAME2)
+	$(RM) $(RM_FlAGS) $(NAME)
+
 re: fclean all

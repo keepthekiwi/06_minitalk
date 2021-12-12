@@ -1,28 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skillian <skillian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 00:08:07 by skillian          #+#    #+#             */
-/*   Updated: 2021/12/12 18:51:30 by skillian         ###   ########.fr       */
+/*   Created: 2021/08/27 18:50:43 by skillian          #+#    #+#             */
+/*   Updated: 2021/09/02 20:16:06 by skillian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <signal.h>
-# include <stdbool.h>
-# include "./libft/libft.h"
-# include "./ft_printf/ft_printf.h"
+int	ft_nbrlen(long long n)
+{
+	int	i;
 
-int		ft_pow(int base, unsigned int factor);
-void	signal_handler(int signal_no);
-void	send_message_bitwise(int pid, char *message, size_t len_msg);
-void	get_bit_by_bit(int bit);
+	i = 0;
+	if (n <= 0)
+	{
+		n *= -1;
+		i++;
+	}
+	while (n > 0)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
+}
 
-#endif
+int	ft_putnbr(long long n)
+{
+	int	nbrlen;
+
+	nbrlen = ft_nbrlen(n);
+	if (n < 0)
+	{
+		n = -n;
+		ft_putchar('-');
+	}
+	if (n >= 10)
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
+	else
+		ft_putchar(n + 48);
+	return (nbrlen);
+}

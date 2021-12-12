@@ -6,7 +6,7 @@
 /*   By: skillian <skillian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 00:06:09 by skillian          #+#    #+#             */
-/*   Updated: 2021/12/12 18:36:18 by skillian         ###   ########.fr       */
+/*   Updated: 2021/12/12 18:49:54 by skillian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(void)
 	int	pid;
 
 	pid = getpid();
-	printf("%i\n", pid);		//<<<<<<<	//muss ft_print sein, da prinntf nich tim Projekt erlaubt
+	ft_printf("%i\n", pid);
 	signal(SIGUSR1, get_bit_by_bit);
 	signal(SIGUSR2, get_bit_by_bit);
 	while (1)
@@ -45,8 +45,8 @@ int	main(void)
 
 void	get_bit_by_bit(int signal)
 {
-	static int currentbit = 0;
-	static unsigned char chr = 0;
+	static int				currentbit = 0;   //durfte ichd as so machen???
+	static unsigned char	chr = 0;
 
 	if (signal == SIGUSR1)
 	{

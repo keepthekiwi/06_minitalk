@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skillian <skillian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 00:08:07 by skillian          #+#    #+#             */
-/*   Updated: 2021/12/12 18:51:30 by skillian         ###   ########.fr       */
+/*   Created: 2021/08/27 18:52:33 by skillian          #+#    #+#             */
+/*   Updated: 2021/09/02 20:16:15 by skillian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <signal.h>
-# include <stdbool.h>
-# include "./libft/libft.h"
-# include "./ft_printf/ft_printf.h"
-
-int		ft_pow(int base, unsigned int factor);
-void	signal_handler(int signal_no);
-void	send_message_bitwise(int pid, char *message, size_t len_msg);
-void	get_bit_by_bit(int bit);
-
-#endif
+int	ft_putstr(char *s)
+{
+	if (s == NULL)
+		return (ft_putstr("(null)"));
+	return (write(1, s, ft_strlen(s)));
+}
