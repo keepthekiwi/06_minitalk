@@ -6,7 +6,7 @@
 /*   By: skillian <skillian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 00:06:09 by skillian          #+#    #+#             */
-/*   Updated: 2021/12/12 18:49:54 by skillian         ###   ########.fr       */
+/*   Updated: 2021/12/13 17:17:18 by skillian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	main(void)
 
 void	get_bit_by_bit(int signal)
 {
-	static int				currentbit = 0;   //durfte ichd as so machen???
-	static unsigned char	chr = 0;
+	static int				currentbit;
+	static unsigned char	chr;
 
 	if (signal == SIGUSR1)
 	{
