@@ -6,14 +6,14 @@
 /*   By: skillian <skillian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 23:48:27 by skillian          #+#    #+#             */
-/*   Updated: 2021/12/12 18:47:21 by skillian         ###   ########.fr       */
+/*   Updated: 2021/12/13 18:07:30 by skillian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-/// wie ft_printf in makefile mit hinein???
-//makefile noch anpassen
+/*	kill() to send a signal
+	signal() to receive signal */
 
 int	main(int argc, char *argv[])
 {
