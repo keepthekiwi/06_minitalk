@@ -6,7 +6,7 @@
 /*   By: skillian <skillian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 23:48:27 by skillian          #+#    #+#             */
-/*   Updated: 2021/12/13 18:29:33 by skillian         ###   ########.fr       */
+/*   Updated: 2021/12/14 17:52:23 by skillian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int	main(int argc, char *argv[])
 {
-	int		pid_server;								
+	int		pid_server;
 	char	*message;
 
 	if (argc != 3)
